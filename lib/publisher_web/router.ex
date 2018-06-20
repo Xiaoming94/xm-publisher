@@ -16,11 +16,11 @@ defmodule PublisherWeb.Router do
   scope "/admin", PublisherWeb do
     pipe_through :browser # Use the default browser stack
 
-    get "/", PageController, :index
+    get "/", AdminController, :index
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", PublisherWeb do
-  #   pipe_through :api
-  # end
+  scope "/api/v2", PublisherWeb do
+    pipe_through :api
+  end
 end

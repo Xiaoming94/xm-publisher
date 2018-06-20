@@ -1,4 +1,4 @@
-defmodule PublisherWeb.PageController do
+defmodule PublisherWeb.AdminController do
   use PublisherWeb, :controller
 
   def index(conn, _params) do
