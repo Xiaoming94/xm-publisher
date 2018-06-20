@@ -22,5 +22,6 @@ defmodule PublisherWeb.Router do
   # Other scopes may use custom stacks.
   scope "/api/v2", PublisherWeb do
     pipe_through :api
+    resources "/pages", PageController, except: [:new, :edit, :delete]
   end
 end
