@@ -1,0 +1,30 @@
+<h2>Listing Pages</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Body</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for page <- @pages do %>
+    <tr>
+      <td><%= page.title %></td>
+      <td><%= page.slug %></td>
+      <td><%= page.body %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: admin_page_path(@conn, :show, page), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: admin_page_path(@conn, :edit, page), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: admin_page_path(@conn, :delete, page), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Page", to: admin_page_path(@conn, :new) %></span>

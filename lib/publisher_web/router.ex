@@ -13,10 +13,11 @@ defmodule PublisherWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/admin", PublisherWeb do
+  scope "/admin", PublisherWeb.Admin, as: :admin do
     pipe_through :browser # Use the default browser stack
 
     get "/", AdminController, :index
+    resources "/pages", PageController
   end
 
   # Other scopes may use custom stacks.
